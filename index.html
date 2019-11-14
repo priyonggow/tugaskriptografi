@@ -508,8 +508,8 @@
 
                 </div>
                 <div class="footer text-center">
-                  <button type="submit" onclick="enkripsi()" class="btn btn-primary btn-md">Enkripsi</button>
-                  <button type="submit" onclick="deskripsi()" class="btn btn-primary btn-md">Deskripsi</button>
+                  <button type="submit" onclick="envig()" class="btn btn-primary btn-md">Enkripsi</button>
+                  <button type="submit" onclick="desvig()" class="btn btn-primary btn-md">Deskripsi</button>
                 </div> 
             </div>
           </div>
@@ -879,7 +879,7 @@ function deskripsi()
 </script> -->
 <!-- skrip 2 -->
     <script type="text/javascript"> 
-    function enkripsi() {
+    function envig() {
         plaintext = document.getElementById("vtext").value.toLowerCase().replace(/[^a-z]/g, "");  
         k = document.getElementById("vkey").value.toLowerCase().replace(/[^a-z]/g, "");
         if(plaintext.length < 1){ alert("silakan masukkan pesan anda (hanya berisi huruf dan angka saja)"); return; }    
@@ -891,7 +891,7 @@ function deskripsi()
         document.getElementById("vcip").value = ciphertext; 
     } 
      
-    function deskripsi(f) { 
+    function desvig(f) { 
         ciphertext = document.getElementById("vtext").value.toLowerCase().replace(/[^a-z]/g, "");  
         k = document.getElementById("vkey").value.toLowerCase().replace(/[^a-z]/g, ""); 
         if(ciphertext.length < 1){ alert("silakan masukkan ciphertext (hanya berisi huruf dan angka saja)"); return; }    
