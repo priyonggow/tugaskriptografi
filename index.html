@@ -490,26 +490,27 @@
             <div class="card card-login">
                 <div class="card-header card-header-primary text-center">
                   <h4 class="card-title">Kode Vigenere</h4>
+                   
                 </div>
                 <div class="card-body">
                   
                   <div class="form-group">
                     <label >Plain text</label>
-                    <textarea type="text"  class="form-control" id="vtext"></textarea>
+                    <textarea type="text"  class="form-control" id="pvig"></textarea>
                   </div>
                   <div class="form-group">
                     <label >Kunci</label>
-                    <input type="text" class="form-control" id="vkey">
+                    <input type="text" class="form-control" id="kvig">
                   </div>
                   <div class="form-group">
                     <label >Cipher text</label>
-                    <textarea type="text" class="form-control" id="vcip"></textarea>
+                    <textarea type="text" class="form-control" id="cvig"></textarea>
                   </div>              
 
                 </div>
                 <div class="footer text-center">
-                  <button type="submit" onclick="envig()" class="btn btn-primary btn-md">Enkripsi</button>
-                  <button type="submit" onclick="desvig()" class="btn btn-primary btn-md">Deskripsi</button>
+                  <button type="submit" onclick="Envig()" class="btn btn-primary btn-md">Enkripsi</button>
+                  <button type="submit" onclick="Desvig()" class="btn btn-primary btn-md">Deskripsi</button>
                 </div> 
             </div>
           </div>
@@ -723,7 +724,7 @@
               <!-- space -->
             <!--  <div class="col-lg-4 col-md-6">
               <blockquote class="twitter-tweet"><p lang="en" dir="ltr">When you do not have knowledge, someone could bring you dirt and you will believe it to be gold. _Ibnu Qayyim</p>&mdash; Priyonggo Wicaksono (@priyonggowi) <a href="https://twitter.com/priyonggowi/status/1194999204499746821?ref_src=twsrc%5Etfw">November 14, 2019</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-          	 </div> -->
+             </div> -->
               <!-- space twitt -->
             </div>
           </div>
@@ -769,15 +770,15 @@
       </div>
     </div>
   </footer>
-	<script src="assets/js/core/jquery.min.js" type="text/javascript"></script>
-  	<script src="assets/js/core/popper.min.js" type="text/javascript"></script>
-  	<script src="assets/js/core/bootstrap-material-design.min.js" type="text/javascript"></script>
+  <script src="assets/js/core/jquery.min.js" type="text/javascript"></script>
+    <script src="assets/js/core/popper.min.js" type="text/javascript"></script>
+    <script src="assets/js/core/bootstrap-material-design.min.js" type="text/javascript"></script>
   <!-- <script src="js/plugins/moment.min.js"></script> -->
-  	<script src="assets/js/plugins/bootstrap-datetimepicker.js" type="text/javascript"></script>
-  	<script src="assets/js/plugins/nouislider.min.js" type="text/javascript"></script>
-  	<script src="assets/js/material-kit.min.js" type="text/javascript"></script>
-  	<!-- awal scroll -->
-  	<script>
+    <script src="assets/js/plugins/bootstrap-datetimepicker.js" type="text/javascript"></script>
+    <script src="assets/js/plugins/nouislider.min.js" type="text/javascript"></script>
+    <script src="assets/js/material-kit.min.js" type="text/javascript"></script>
+    <!-- awal scroll -->
+    <script>
     $(document).ready(function() {
       materialKit.initSliders();
     });
@@ -795,9 +796,9 @@
         }, 1000);
       }
     }
-  	</script>
-  	<!-- akhir scroll -->
-  	<!-- AwalSkrip untuk kode kaisar -->
+    </script>
+    <!-- akhir scroll -->
+    <!-- AwalSkrip untuk kode kaisar -->
   <script type="text/javascript"> 
 function EnKai() {
     plaintext = document.getElementById("pkai").value.toLowerCase();  
@@ -824,87 +825,31 @@ function DesKai(f) {
 } 
 </script>
 <!-- Akhir Skrip kode kaisar -->
-<!-- Awal skrip vigenere -->
-<!-- <script>
-function enkripsi()
-{
-    var pesan = document.getElementById("vtext").value;
-    var key = document.getElementById("vkey").value;
-    pesan = pesan.toLowerCase();
-    key = key.toLowerCase();   
-    var crypt ="";
-    var temp = 0;
-    var ikey = 0;
-    
-    for(var i = 0; i < pesan.length; i++)
-    {if(pesan[i]==" ")
-       {crypt = crypt + " ";
-       }
-       else { temp = pesan[i].charCodeAt(0) -97 + key[ikey].charCodeAt(0)- 97;
-           if(temp > 25)
-           {temp = temp - 26;}
-                     
-           crypt = crypt + String.fromCharCode(temp + 97);
-           ikey++;}
-       if(ikey >= key.length)
-       { ikey=0; }
-       temp =0;
-    }document.getElementById("vcip").innerHTML = crypt; 
-}
-
-function deskripsi()
-{
-    var pesan = document.getElementById("vcip").value;
-    var key = document.getElementById("vkey").value;
-    
-    pesan = pesan.toLowerCase();
-    key = key.toLowerCase();    
-    var crypt ="";
-    var temp = 0;
-    var ikey = 0;
-    
-    for(var i = 0; i < pesan.length; i++)
-    { if(pesan[i]==" "){crypt = crypt + " ";}
-       else 
-        {temp = pesan[i].charCodeAt(0) - key[ikey].charCodeAt(0);
-           if(temp < 0)
-           {temp = temp + 26;}        
-           crypt = crypt + String.fromCharCode(temp + 97);ikey++;}
-       
-       if(ikey >= key.length)
-       { ikey=0;}
-       temp =0;
-    }document.getElementById("vtext").innerHTML = crypt; 
-}
-</script> -->
-<!-- skrip 2 -->
-    <script type="text/javascript"> 
-    function envig() {
-        plaintext = document.getElementById("vtext").value.toLowerCase().replace(/[^a-z]/g, "");  
-        k = document.getElementById("vkey").value.toLowerCase().replace(/[^a-z]/g, "");
-        if(plaintext.length < 1){ alert("silakan masukkan pesan anda (hanya berisi huruf dan angka saja)"); return; }    
-        if(k.length <= 1){ alert("kata kunci minimal harus 2 karakter"); return; }
-        ciphertext="";
-        for(i=0; i<plaintext.length; i++){ 
-            ciphertext += String.fromCharCode((((plaintext.charCodeAt(i)-97) + (k.charCodeAt(i%k.length)-97)+26)%26)+97); 
-        } 
-        document.getElementById("vcip").value = ciphertext; 
-    } 
-     
-    function desvig(f) { 
-        ciphertext = document.getElementById("vtext").value.toLowerCase().replace(/[^a-z]/g, "");  
-        k = document.getElementById("vkey").value.toLowerCase().replace(/[^a-z]/g, ""); 
-        if(ciphertext.length < 1){ alert("silakan masukkan ciphertext (hanya berisi huruf dan angka saja)"); return; }    
-        if(k.length <= 1){ alert("kata kunci minimal harus 2 karakter"); return; }
-        plaintext="";
-        for(i=0; i<ciphertext.length; i++){ 
-            plaintext += String.fromCharCode((((ciphertext.charCodeAt(i)-97) - (k.charCodeAt(i%k.length)-97)+26)%26)+97); 
-        } 
-        document.getElementById("vcip").value = plaintext; 
-    } 
-    </script> 
-<!-- Akhir Skrip -->
-
+<script type="text/javascript"> 
+                function Envig() {
+                    plaintext = document.getElementById("pvig").value.toLowerCase().replace(/[^a-z]/g, "");  
+                    k = document.getElementById("kvig").value.toLowerCase().replace(/[^a-z]/g, ""); 
+                    if(plaintext.length < 1){ alert("silakan masukkan pesan anda (hanya berisi huruf dan angka)"); return; }    
+                    if(k.length <= 1){ alert("kata kunci berisi minimal 2 karakter"); return; }
+                    ciphertext="";
+                    for(i=0; i<plaintext.length; i++){ 
+                        ciphertext += String.fromCharCode((((plaintext.charCodeAt(i)-97) + (k.charCodeAt(i%k.length)-97)+26)%26)+97); 
+                    } 
+                    document.getElementById("cvig").value = ciphertext; 
+                } 
+                 
+                function Desvig(f) { 
+                    ciphertext = document.getElementById("cvig").value.toLowerCase().replace(/[^a-z]/g, "");  
+                    k = document.getElementById("kvig").value.toLowerCase().replace(/[^a-z]/g, ""); 
+                    if(ciphertext.length < 1){ alert("silakan masukkan ciphertext (hanya berisi huruf dan angka)"); return; }    
+                    if(k.length <= 1){ alert("kata kunci minimal harus 2 karakter"); return; }
+                    plaintext="";
+                    for(i=0; i<ciphertext.length; i++){ 
+                        plaintext += String.fromCharCode((((ciphertext.charCodeAt(i)-97) - (k.charCodeAt(i%k.length)-97)+26)%26)+97); 
+                    } 
+                    document.getElementById("pvig").value = plaintext; 
+                } 
+                </script>
 </body>
 
 </html>
