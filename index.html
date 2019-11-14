@@ -854,7 +854,7 @@ function enkripsi()
 
 function deskripsi()
 {
-    var pesan = document.getElementById("vtext").value;
+    var pesan = document.getElementById("vcip").value;
     var key = document.getElementById("vkey").value;
     
     pesan = pesan.toLowerCase();
@@ -874,7 +874,7 @@ function deskripsi()
        if(ikey >= key.length)
        { ikey=0;}
        temp =0;
-    }document.getElementById("vcip").innerHTML = crypt; 
+    }document.getElementById("vtext").innerHTML = crypt; 
 }
 </script>
 <!-- skrip 2 -->
