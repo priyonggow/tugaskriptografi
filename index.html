@@ -730,27 +730,59 @@
           <div class="col-lg-3 col-md-4 ml-auto mr-auto">
             <div class="card card-login">
                 <div class="card-header card-header-primary text-center">
-                  <h4 class="card-title"><a href="#" target="_blank"></a> Cipher - ???</h4>
+                  <h4 class="card-title">9. Zigzag</h4>
                 </div>
                 <div class="card-body">
+                  <script>
+            function encrypt(rail, pesan){
+                var zigzag = [];
+                for(var i = 0; i < rail; i++){
+                    zigzag.push("");
+                }
+                
+                var number = 0;
+                var increment = 1;
+                for(var j = 0; j < pesan.length; j++){
+                    if(number + increment == rail)
+                        increment = -1;
+                    else if(number + increment == -1)
+                        increment = 1;
+                    zigzag[number] +=pesan[j];
+                    number += increment;
+                }
+                
+                var buffer = "";
+                zigzag.forEach(string => {
+                    buffer += string;
+                })
+                
+                return buffer;
+            }
+            
+            function display(){
+                var pesan = this.document.getElementById("pZigzag").value;
+                var kunci = this.document.getElementById("kZigzag").value;
+              document.getElementById("cZigzag").value = encrypt(kunci, pesan)); 
+            }
+		</script>
                   
                   <div class="form-group">
                     <label >Plain text</label>
-                    <textarea type="text" class="form-control" id="pAuto" disabled=""></textarea>
+                    <textarea type="text" class="form-control" id="pZigza"></textarea>
                   </div>
                   <div class="form-group">
                     <label >Kunci</label>
-                    <input type="text" class="form-control" id="kAuto">
+                    <input type="number" value="4" class="form-control" id="kZigzag">
                   </div>
                   <div class="form-group">
                     <label >Cipher text</label>
-                    <textarea type="text" class="form-control" id="cAuto"></textarea>
+                    <textarea type="text" class="form-control" id="cZigzag"></textarea>
                   </div>             
 
                 </div>
                 <div class="footer text-center">
-                  <button type="submit" onclick="enAuto()" class="btn btn-primary btn-md">Enkripsi</button>
-                  <button type="submit" onclick="desAuto()" class="btn btn-primary btn-md">Deskripsi</button>
+                  <button type="submit" onclick="EnKai()" class="btn btn-primary btn-md">Enkripsi</button>
+                  <button type="submit" onclick="DesKai()" class="btn btn-primary btn-md">Deskripsi</button>
                 </div>
             </div>
           </div>
